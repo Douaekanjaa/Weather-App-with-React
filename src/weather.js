@@ -15,8 +15,9 @@ function Weather() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const apiKey = process.env.appid;
         const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=0bdd3043a2b751ec19bc5ea896b5996a`
+          `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
         );
         setWeatherData(response.data);
       } catch (error) {
